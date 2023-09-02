@@ -25,7 +25,7 @@ const inmanager = require('../backend/routes/uploder');
 const app = express()
 app.use(bodyParser.json({ limit: '1000mb' }));
 app.use(cors({ origin: "*" }));
- app.use(express.static(path.join(__dirname, 'dist/Info-saver')))
+ //app.use(express.static(path.join(__dirname, 'dist/Info-saver')))
 // app.use('/', express.static(path.join(__dirname, 'dist/Info-saver')))
 app.use('/api',  NotesRoute); //userRoute ||
 app.use('/api',  userRoute); 
