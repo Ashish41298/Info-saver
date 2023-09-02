@@ -1,7 +1,7 @@
 const express = require('express');
 const userRoute = express.Router();
 // Employee model
-let Users = require('../models/User');
+let Users = require('../Models/User');
 //for users
   // Create a new user
   userRoute.post('/users', async (req, res) => {
