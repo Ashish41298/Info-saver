@@ -1,0 +1,427 @@
+
+<div id="closerc" class="pps" [hidden]="itschanger == false" (click)="itschenger($event)">
+ <div style="background: white; padding:5px 5px 0px 5px; border: 2px dashed rgb(172, 70, 91);">
+  <input #iscolorfields  type="color" (change)="dome(backgroundColor, 'backgroundColor')" [(ngModel)]="backgroundColor" [value]="backgroundColor"/>
+ </div>
+</div>
+<div id="closerc" class="pps" [hidden]="iconschanger == false" (click)="iconschenger($event)">
+  <div style="background: white; padding:5px 5px 0px 5px; border: 2px dashed rgb(90, 172, 70);">
+   <input #iscolorfields  type="color" (change)="dome(iconiconicolors, 'iconiconicolors')" [(ngModel)]="iconiconicolors" [value]="iconiconicolors"/>
+  </div>
+ </div>
+ <div id="closerc" class="pps" [hidden]="Text_color == false" (click)="textcolorevent($event)">
+  <div style="background: white; padding:5px 5px 0px 5px; border: 2px dashed rgb(190, 201, 188);">
+   <input #iscolorfields  type="color" (change)="dome(textColorsss, 'textColorsss')" [(ngModel)]="textColorsss" [value]="textColorsss"/>
+  </div>
+ </div>
+
+<div class="Bgtarget" [hidden]="iconsorder_target == false" (click)="clbgmc()">
+  <div class="animate__animated animate__zoomInRight animate__delay-0.2s">
+    <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('../../../assets/pngs/—Pngtree—purple folder icon material_4607704.png')"><img width="30px !important" src="../../../assets/pngs/—Pngtree—purple folder icon material_4607704.png" alt=""></button>
+
+    <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('https://img.icons8.com/?size=512&id=WWogVNJDSfZ5&format=png')"><img width="30px !important" src="https://img.icons8.com/?size=512&id=WWogVNJDSfZ5&format=png" alt=""></button>
+
+    <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('https://cdn-icons-png.flaticon.com/128/5082/5082720.png')"><img width="30px !important" src="https://cdn-icons-png.flaticon.com/128/5082/5082720.png" alt=""></button>
+
+    <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('https://cdn-icons-png.flaticon.com/128/716/716869.png')"><img width="30px !important" src="https://cdn-icons-png.flaticon.com/128/716/716869.png" alt=""></button>
+    
+    <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/dictionary.png')"><img width="30px !important" src="https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/dictionary.png" alt=""></button>
+
+    <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('https://images.freeimages.com/fic/images/icons/732/snow_leopard/512/smart_folder.png')"><img width="30px !important" src="https://images.freeimages.com/fic/images/icons/732/snow_leopard/512/smart_folder.png" alt=""></button>
+
+    <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/inkscape.png')"><img width="30px !important" src="https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/inkscape.png" alt=""></button>
+
+    <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('https://images.freeimages.com/fic/images/icons/1198/agua_onyx_folders/256/folders_folder.png')"><img width="30px !important" src="https://images.freeimages.com/fic/images/icons/1198/agua_onyx_folders/256/folders_folder.png" alt=""></button>
+
+   <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/downloads.png')"><img width="30px !important" src="https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/downloads.png" alt=""></button>
+
+   <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/candy.png')"><img width="30px !important" src="https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/candy.png" alt=""></button>
+
+   <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/thepiratebay.png')"><img width="30px !important" src="https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/thepiratebay.png" alt=""></button>
+
+   <button class="mcolor" style="background:transparent !important; min-width:25px !important;" mat-button (click)="changefoldericonpngs('https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/coversutra.png')" ><img width="30px !important" src="https://images.freeimages.com/fic/images/icons/754/isuite_revoked/512/coversutra.png" alt=""></button>
+
+   <button title="Change the files icons colors" style="width: 100% !important; padding: 0; border: 0.5px dashed;" mat-button (click)="iconschenger($event)"> 
+    Files icon color
+   </button>
+   <button title="Change the All text colors" style="width: 100% !important; padding: 0; border: 0.5px dashed;" mat-button (click)="textcolorevent($event)"> 
+    Text-color
+   </button>
+  </div>
+</div>
+
+<!-- <button title="Upload" class="selmenubtn" mat-icon-button (click)="inputField.click()"><i style="color: #1c7bbf;"
+  class="fa-solid fa-cloud-arrow-up"></i></button>
+<input  #inputField hidden type="file" (change)="uploadFile($event)" /> -->
+
+<div class="Bgtarget" [hidden]="brorders_target == false" (click)="clbgmc()">
+  <div class="animate__animated animate__zoomInRight animate__delay-0.2s">
+  <button class="mcolor" mat-button (click)="changeBackgroundColor('#17171a')"> </button>
+  <button class="mcolor" mat-button (click)="changeBackgroundColor('linear-gradient(to left, #093637, #44A08D)')"> </button>
+  <button class="mcolor" mat-button (click)="changeBackgroundColor('linear-gradient(to left, #24243e, #302b63, #0f0c29)')"> </button>
+  <button class="mcolor" mat-button (click)="changeBackgroundColor('linear-gradient(to left, #C06C84, #6C5B7B, #355C7D)')"> </button>
+  <button class="mcolor" mat-button (click)="changeBackgroundColor('linear-gradient(to left, #240b36, #c31432)')"> </button>
+  <button class="mcolor" mat-button (click)="changeBackgroundColor('linear-gradient(to left, #141517, #6A9113)')"> </button>
+   <button class="mcolor" mat-button (click)="changeBackgroundColor('linear-gradient(to left, #606c88, #3f4c6b)')"> </button>
+    <button class="mcolor" mat-button (click)="changeBackgroundColor('linear-gradient(to right, #16222a, #3a6073)')"> </button>
+   <button title="Change the Backgroud colors" style="width: 100% !important; padding: 0; border: 0.5px dashed;" mat-button (click)="itschenger($event)"> 
+   custom colors
+  </button>
+    
+    <!-- <div style="display: flex; flex-direction: column; align-items: center;">
+      <input type="color" (change)="dome(backgroundColor)" [(ngModel)]="backgroundColor" [value]="backgroundColor"/>
+      <h5>Custom Color</h5>
+    </div> -->
+  </div>
+ 
+</div>
+
+
+
+<div class="loaderv" *ngIf="childDataLoaded == true">
+  <div class="innerloader animate__animated animate__bounceIn">
+    <img src="../../../assets/svganim/video_loader.gif" alt="">
+    <h3> 🍵 Wait ... <span>Dont't Refresh the Webpage</span></h3>
+
+  </div>
+</div>
+<div class="viewer" *ngIf="viewpop == true && viewablefiles">
+  <div class="inview">
+    <button class="cancelviewer" mat-button (click)="closed()"><i style="font-size: 20px;"
+        class="fa-regular fa-rectangle-xmark"></i></button>
+    <app-document-view *ngIf="getFileIcon(cDoc.mimetype)" class="mdocv" filename="{{cDoc.name}}"
+      urldoc="{{cDoc.mimetype}}" url="{{viewablefiles}}" MainDoc="{{cDoc | json}}" viewer="url"
+      (loaded)="childDataLoaded = $event"></app-document-view>
+  </div>
+</div>
+
+<mat-drawer-container class="example-container" autosize>
+  <!-- <mat-drawer #drawer class="example-sidenav" [style.background]="backgroundColor" mode="side">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState == true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            ❇️ Files
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div *ngFor="let file of directfilearr index as i">
+          <button class="navibtn" mat-button [hidden]="i == 0">
+            <i class="fa-solid {{ getFileIcon(file.type) }} deepicon "></i> {{file.name}}</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+      <div>❇️ Folders</div>
+      <mat-tree-node *matTreeNodeDef="let node;" matTreeNodeToggle style="display: none;">
+      </mat-tree-node>
+      <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+        <div class=" db mat-tree-node">
+          <button class="navibtn" mat-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+            <img style="height:27px; width:27px"
+              src="../../assets/pngs/—Pngtree—purple folder icon material_4607704.png" alt=""> {{node.name}}
+          </button>
+        </div>
+        <div class="innnerbg" [class.example-tree-invisible]="!treeControl.isExpanded(node)"
+          [@slideVertical]="treeControl.isExpanded(node) ? 'show' : null" role="group">
+          <ng-container matTreeNodeOutlet *ngFor="let file of node.files index as i">
+            <button class="navibtn" mat-button [hidden]="i == 0">
+              <i class="fa-solid {{ getFileIcon(file.type) }} deepicon "></i> {{file.name}}</button>
+          </ng-container>
+        </div>
+      </mat-nested-tree-node>
+    </mat-tree>
+
+
+  </mat-drawer> -->
+
+  <div class="example-sidenav-content">
+    <div class="Tnav">
+      <button mat-icon-button title="Cut" [disabled]="databoder == false "><i class="fa-solid fa-scissors"></i></button>
+      <button mat-icon-button title="Copy" [disabled]="databoder == false "><i class="fa-solid fa-copy"></i></button>
+      <button mat-icon-button title="Past" [disabled]="databoder == false "><i class="fa-regular fa-paste"></i></button>
+      <button mat-icon-button title="Delete" [disabled]="databoder == false "><i
+          class="fa-solid fa-trash-can"></i></button>
+      <button mat-icon-button title="Share" [disabled]="databoder == false "><i
+          class="fa-solid fa-share-nodes"></i></button>
+    </div>
+    <!----------------folder popup---------------->
+    <mat-menu #MDRight="matMenu" yPosition="below" class="matselbar">
+      <div (click)="ppclode($event)">
+        <div *ngIf="cDoc">
+          <div class="rhead" style="overflow: hidden; margin: 0px 10px 0px 10px; width: 150px;">
+            <i class="fa-regular fa-folder"></i>
+            <div class="riname">{{cDoc.name}}</div>
+          </div>
+          <div class="rfolder">
+            <button class="ifobtn" mat-menu-item [matMenuTriggerFor]="INMDRight"> <i
+                class="fa-solid fa-folder-plus"></i> New</button>
+          </div>
+          <div class="social">
+            <button class="ifobtn" mat-button> <i class="fa-regular fa-folder-open"></i> Open</button>
+            <button class="ifobtn" mat-button> <i class="fa-solid fa-share-nodes"></i> Share</button>
+            <button class="ifobtn" mat-button> <i class="fa-solid fa-pen"></i> Rename</button>
+            <button class="ifobtn" mat-button> <i class="fa-solid fa-up-down-left-right"></i> Move</button>
+            <button class="ifobtn" mat-button> <i class="fa-regular fa-clone"></i> Copy</button>
+            <button class="ifobtn" mat-button> <i class="fa-solid fa-trash-can"></i> Delete</button>
+          </div>
+        </div>
+      </div>
+    </mat-menu>
+    <mat-menu #INMDRight="matMenu" class="myincl">
+      <div style="padding-right: 10px !important;">
+        <button mat-menu-item class="ifobtn" (click)="gtpdf('pdf')"><i class="fa-regular fa-file-lines inicin" style="font-size:18px;"></i>
+          Pdf </button>
+        <button mat-menu-item class="ifobtn" style="margin-left: 4px !important;" (click)="gDocfiles('docx')"><i class="fa-regular fa-file-word inicin" style="font-size:18px;"></i> Word-Doc</button>
+      </div>
+    </mat-menu>
+
+
+
+
+    <!----------------filse popup---------------->
+    <mat-menu #fileRight="matMenu" yPosition="below" class="matselbar">
+      <div class="conbox" id="conbox" (click)="ppclode($event)" [hidden]="Dfiles == false">
+        <div class="rightclick" *ngIf="cDoc">
+          <div class="rhead" style="overflow: hidden; margin: 0px 10px 0px 10px; width: 150px;">
+            <i class="fa-regular fa-folder"></i>
+            <div class="riname">{{cDoc.name}}</div>
+          </div>
+          <div class="social" style="margin-top: -1px !important;">
+            <button class="ifobtn" mat-button (click)="viewfiles(cDoc)"> <i class="fa-regular fa-eye"></i> View</button>
+            <button class="ifobtn" mat-button> <i class="fa-solid fa-share-nodes"></i> Share</button>
+            <button class="ifobtn" mat-button> <i class="fa-solid fa-cloud-arrow-down"
+                style="margin: 0px 6px 0px 10px;font-size: 15px;"></i> Download</button>
+            <button class="ifobtn" mat-button> <i class="fa-solid fa-pen"></i> Rename</button>
+            <button class="ifobtn" mat-button> <i class="fa-solid fa-up-down-left-right"></i> Move</button>
+            <button class="ifobtn" mat-button> <i class="fa-regular fa-clone"></i> Copy</button>
+            <button class="ifobtn" mat-button (click)="DeleteFiles(cDoc)"> <i class="fa-solid fa-trash-can"></i>
+              Delete</button>
+          </div>
+        </div>
+      </div>
+    </mat-menu>
+    <ul *ngIf="gtinnertext.length >= 2">
+      <img style="height: 100%; width: 100%;" src="../../assets/pngs/—Pngtree—purple folder icon material_4607704.png"
+        alt="">
+      <li *ngFor="let path of gtinnertext index as i" [hidden]="i == 0">
+        <!--[hidden]="i == 0"-->
+        <button class="pathb" mat-button (click)="locations(i, path)">{{path.name}}<i class="fa-solid fa-chevron-right"
+            style="color: #8b8e85; margin-left: 5px;"></i></button>
+      </li>
+    </ul>
+
+
+
+    <div class="mcond" [style.background]="backgroundColor">
+      <div style="float: right; display:flex; gap:7px; margin:10px">
+        <button [style.color]="textColorsss" mat-icon-button (click)="bgorders()" title="Chang the background color" class="paint_M"><i class="fa-solid fa-brush" style="font-size: 15px;"></i></button>
+        <button [style.color]="textColorsss" mat-icon-button (click)="iconsorder()" title="Change the folders, files-icons and text color" class="paint_M"><i class="fa-solid fa-screwdriver-wrench" style="font-size: 15px;"></i></button>
+      </div>
+      <!------*ngIf="!! addedfolders && !! directfilearr"-->
+      <div *ngIf="!addedfolders.length " class="mainfnf">
+        <div class="confnf" style="width: 450px; overflow:hidden;">
+          <img src="../../../assets/pngs/foldernotfound.png" style="height: 100%; width:100%;" alt="">
+        </div>
+      </div>
+      <h2 class="tags" *ngIf="addedfolders" [style.color]="textColorsss">Folders</h2>
+
+      <div class="grid-i" *ngIf="addedfolders" [ngStyle]="style" mwlResizable (resizeEnd)="onResizeEnd($event)"
+        #resize_F  cdkDrag >
+        <div class="example-handle" cdkDragHandle >
+          <svg width="24px" title="Move the folder containers on the Screen" [style.fill]="textColorsss" fill="currentColor" viewBox="0 0 24 24" style="height: 15px !important;">
+            <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+        </div>
+        <!-----[ngClass]="{'boders': i === selectedItemIndex} -->
+        <div class="mainfol" *ngFor="let fname of addedfolders index as i">
+          <!--[hidden]="i == 0"-->
+          <button mat-button class="fclose" class="foderbtn" [title]="fname.name" [value]="fname.name"
+            (click)="pathcon(fname, $event)">
+            <img class="fimg" style="height:38px; float: left; margin: 2px 5px 0px 0px;"
+            [src]="cfolder_pngs ?? '../../../assets/pngs/—Pngtree—purple folder icon material_4607704.png '" alt="folder"> <!--[src]="cfolder_pngs"-->
+            <div id="innnernames" class="foldername" [style.color]="textColorsss">
+              {{fname.name}}
+            </div>
+          </button>
+          <button class="infbtn" [style.color]="iconiconicolors" [matMenuTriggerFor]="MDRight" mat-icon-button (click)="rightclick(fname)"><i
+              class="fa-solid fa-ellipsis-vertical" style="font-size: 19px;"></i></button>
+
+          <!-----path-folder-con-->
+
+        </div>
+
+        <!-----***************************Rs*********************-->
+        <div class="resize-handle-top" mwlResizeHandle [resizeEdges]="{ top: true }"><i
+          [style.color]="textColorsss"  class="fa-solid fa-caret-up"></i></div>
+        <div class="resize-handle-bottom" mwlResizeHandle [resizeEdges]="{ bottom: true }"><i
+          [style.color]="textColorsss"  class="fa-solid fa-sort-down"></i></div>
+        <div class="resize-handle-right" mwlResizeHandle [resizeEdges]="{ right: true }"><i
+          [style.color]="textColorsss"  class="fa-solid fa-caret-right"></i></div>
+      </div>
+      <!----directfiles-->
+      <!-- <div class="directfile"> -->
+      <h2 class="tags" *ngIf="directfilearr" [style.color]="textColorsss">Files</h2>
+      <div class="grid-i" [ngStyle]="directFstyle" [resizeSnapGrid]="{ left: 1, right: 1 }" mwlResizable
+        (resizeEnd)="directFonResizeEnd($event)" cdkDrag>
+        <div class="example-handle" cdkDragHandle >
+          <svg width="24px" title="Move the folder containers on the Screen" [style.fill]="textColorsss" fill="currentColor" viewBox="0 0 24 24" style="height: 15px !important;">
+            <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+        </div>
+        <div class="mainfol" *ngFor="let file of directfilearr index as i">
+          <button mat-button class="foderbtn" [title]="file.name">
+            <i [style.color]="iconiconicolors" class="fa-solid {{ getFileIcon(file.mimetype) }} deepicon "></i>
+            <div id="innnernames" class="foldername" [style.color]="textColorsss" >
+              {{file.name}}
+            </div>
+          </button>
+          <button class="infbtn" [style.color]="iconiconicolors" [matMenuTriggerFor]="fileRight" mat-icon-button (click)="filesrightclick(file,i)"><i
+              class="fa-solid fa-ellipsis-vertical" style="font-size: 19px;"></i></button>
+        </div>
+        <div class="resize-handle-top" mwlResizeHandle [resizeEdges]="{ top: true }"><i
+          [style.color]="textColorsss"  class="fa-solid fa-caret-up"></i></div>
+        <div class="resize-handle-bottom" mwlResizeHandle [resizeEdges]="{ bottom: true }"><i
+          [style.color]="textColorsss"  class="fa-solid fa-sort-down"></i></div>
+        <div class="resize-handle-right" mwlResizeHandle [resizeEdges]="{ right: true }"><i
+          [style.color]="textColorsss"  class="fa-solid fa-caret-right"></i></div>
+
+      </div>
+
+      <!-- </div> -->
+    </div>
+
+    <div class="M_nav">
+      <button type="button" id="drowerbtn" mat-button (click)="drawer.toggle()">
+        <i style="color:#1c7bbf;" class="fa-solid fa-bars-staggered"></i>
+      </button>
+      <button title="Add-Doc" class="adddatabtn" [matMenuTriggerFor]="menu" mat-icon-button (click)="additms()">
+        <!--- -->
+        +
+      </button>
+    </div>
+    <mat-menu class="addselect"  #menu="matMenu">
+      <button title="Add-Folder" class="selmenubtn" mat-icon-button (click)="dataget('addfo')"><img
+          style="height:90px; width:90px;" src="../../assets/svganim/add-folder.gif" alt=""></button>
+      <button title="Upload" class="selmenubtn" mat-icon-button (click)="inputField.click()"><i style="color: #1c7bbf;"
+          class="fa-solid fa-cloud-arrow-up"></i></button>
+      <input  #inputField hidden type="file" (change)="uploadFile($event)" />
+      <!----(change)="PickDoc($event)"-->
+    </mat-menu>
+    <div class="addfl" *ngIf="opendi == true">
+      <div class="inneraddfl">
+        <div class="col-md-10">
+          <div class="group">
+            <input type="text" class="uploaderk" required [(ngModel)]="FolderName">
+            <label>Folder Name</label>
+          </div>
+          <button class="addfbtn" mat-icon-button (click)="gfname()"><i style="color: #e502ff;"
+              class="fa-solid fa-folder-plus"></i></button>
+
+        </div>
+        <button style="position:absolute; top:0px; right:0px; z-index: 20; z-index: 9999999999999; color: #e502ff;"
+          mat-icon-button (click)="closed()"><i class="fa-sharp fa-solid fa-xmark "></i></button>
+      </div>
+    </div>
+    <!-- addnewFildesg -->
+    <div class="addfl" *ngIf="txtgenfile == true">
+      <div class="inneraddfl">
+        <div class="col-md-10">
+          <div class="group">
+            <input type="text" class="uploaderk" required [(ngModel)]="FolderName">
+            <label>File Name</label>
+          </div>
+          <button class="addfbtn" mat-icon-button (click)="gnrtf()"><i style="color: #e502ff;"
+              class="fa-solid fa-folder-plus"></i></button>
+
+        </div>
+        <button style="position:absolute; top:0px; right:0px; z-index: 20; z-index: 9999999999999; color: #e502ff;"
+          mat-icon-button (click)="closed()"><i class="fa-sharp fa-solid fa-xmark "></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="smnotify" *ngIf="smlnotification == true">
+    <div class="msg" *ngIf="smlnotificationmfg" style="font-size: 14px;">
+      {{smlnotificationmfg}}
+    </div>
+  </div>
+  <div class="mprogress" *ngIf="cprogress != '0%'">
+    <div class="innerprogerrss">
+      <div class="progress">
+        <span>{{cprogress}}</span>
+        <div class="progress-bar progress-bar-striped" role="progressbar" [style.width]="cprogress" aria-valuemin="0"
+          aria-valuemax="100"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-----path-folder-con-->
+  <div class="mcond" [hidden]="folderpopup == false" [style.background]="backgroundColor">
+    <div style="float: right; display:flex; gap:7px; margin:10px">
+      <button [style.color]="textColorsss" mat-icon-button (click)="bgorders()" title="Change the background color" class="paint_M"><i class="fa-solid fa-brush" style="font-size: 15px;"></i></button>
+      <button [style.color]="textColorsss" mat-icon-button (click)="iconsorder()" title="Change the folders, files-icons and text color" class="paint_M"><i class="fa-solid fa-screwdriver-wrench" style="font-size: 15px;"></i></button>
+    </div>
+    <button mat-icon-button class="button-back" (click)="closed()"><i style="margin-left: -2px;"
+        class="fa-solid fa-caret-left"></i></button>
+    <!------inner-Doc------->
+
+    <h2 class="tags" *ngIf="addedfolders" [style.color]="textColorsss" >Folders</h2>
+    <div class="grid-i"  *ngIf="selecteddoc"
+      style="width: 100% !important;" [ngStyle]="In_style" mwlResizable (resizeEnd)="InonResizeEnd($event)" cdkDrag >
+      <div class="example-handle" cdkDragHandle >
+        <svg width="24px" title="Move the folder containers on the Screen" [style.fill]="textColorsss" fill="currentColor" viewBox="0 0 24 24" style="height: 15px !important;">
+          <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+          <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>
+      </div>
+      <div class="mainfol" *ngFor="let inner of selecteddoc index as i">
+        <button mat-button class="foderbtn" [title]="inner.name" [value]="inner.name" (click)="pathcon(inner, $event)">
+          <img class="fimg" style="height:38px; float: left; margin: 2px 5px 0px 0px;"
+          [src]="cfolder_pngs" alt="folder">
+          <div id="innnernames" class="foldername" [style.color]="textColorsss" >
+            {{inner.name}}
+          </div>
+        </button>
+        <button [style.color]="iconiconicolors" class="infbtn" [matMenuTriggerFor]="MDRight" mat-icon-button (click)="rightclick(inner)"><i
+          [style.color]="textColorsss"  class="fa-solid fa-ellipsis-vertical" style="font-size: 19px;"></i></button>
+      </div>
+      <div class="resize-handle-top" mwlResizeHandle [resizeEdges]="{ top: true }"><i
+        [style.color]="textColorsss" class="fa-solid fa-caret-up"></i></div>
+      <div class="resize-handle-bottom" mwlResizeHandle [resizeEdges]="{ bottom: true }"><i
+        [style.color]="textColorsss" class="fa-solid fa-sort-down"></i></div>
+      <div class="resize-handle-right" mwlResizeHandle [resizeEdges]="{ right: true }"><i
+        [style.color]="textColorsss" class="fa-solid fa-caret-right"></i></div>
+    </div>
+    <h2 class="tags" *ngIf="addedfolders" [style.color]="textColorsss" >Files</h2>
+    <div class="grid-i" [ngStyle]="In_directFstyle" mwlResizable (resizeEnd)="IndirectFonResizeEnd($event)" cdkDrag >
+       <div class="example-handle" cdkDragHandle >
+          <svg width="24px" title="Move the folder containers on the Screen" [style.fill]="textColorsss" fill="currentColor" viewBox="0 0 24 24" style="height: 15px !important;">
+            <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+        </div>
+      <div class="mainfol" *ngFor="let file of innerselfiles index as i">
+        <button mat-button class="foderbtn" [title]="file.name">
+          <i [style.color]="iconiconicolors" class="fa-solid {{ getFileIcon(file.mimetype) }} deepicon "></i>
+          <div id="innnernames" class="foldername" [style.color]="textColorsss">
+            {{file.name}}
+          </div>
+        </button>
+
+
+        <button [style.color]="iconiconicolors" class="infbtn" [matMenuTriggerFor]="fileRight" mat-icon-button (click)="filesrightclick(file,i)"><i
+            class="fa-solid fa-ellipsis-vertical" style="font-size: 19px;"></i></button>
+      </div>
+      <div class="resize-handle-top" mwlResizeHandle [resizeEdges]="{ top: true }"><i [style.color]="textColorsss" class="fa-solid fa-caret-up"></i></div>
+      <div class="resize-handle-bottom" mwlResizeHandle [resizeEdges]="{ bottom: true }"><i
+        [style.color]="textColorsss"  class="fa-solid fa-sort-down"></i></div>
+      <div class="resize-handle-right" mwlResizeHandle [resizeEdges]="{ right: true }"><i
+        [style.color]="textColorsss"  class="fa-solid fa-caret-right"></i></div>
+    </div>
+  </div>
+</mat-drawer-container>

@@ -1,0 +1,77 @@
+
+<mat-drawer-container class="example-container" >
+    <mat-drawer-content  style="margin-left:0px !important;">
+      <mat-drawer #drawer class="example-sidenav" mode="side">
+        <div class="mainc ">
+          <ul>
+            <li class="animate__animated animate__backInLeft">
+                <button class="snavbtn " mat-button (click)="impnotes()"><i class=" fa-solid fa-star fa-sharp"></i></button><span class="suggest">Important Notes</span>
+            </li>
+            <li class="animate__animated animate__backInLeft">
+              <button mat-button class="snavbtn" (click)="homenavigate()"><i class="fa-solid fa-house-chimney-crack"></i></button><span class="suggest">Notes</span>
+            </li>
+            <li class="animate__animated animate__backInLeft">
+              <button mat-button class="snavbtn " (click)="folder()"><i class="fa-solid fa-folder-open"></i></button><span class="suggest">Gallery</span>
+            </li>
+            <li class="animate__animated animate__backInLeft">
+              <button class="snavbtn " mat-button (click)="impnotes()" ><i class="fa-sharp fa-solid fa-gear"></i></button> <span class="suggest">Setting</span>
+            </li>
+          </ul>
+        </div>
+      </mat-drawer>
+      <button class="navbtn animate__animated animate__fadeInLeft" type="button" color="accent"  mat-button
+        (click)="drawer.toggle()">
+        <img style="height: 100%; width:100%; margin-top: -2px;" src="../assets/svganim/hgif.gif" alt="">
+      </button>
+      <mat-toolbar class="nvtop">
+        <div class="tnav">
+          <div class="ninshow animate__animated animate__fadeInRight" >
+            <div class="nname">
+              <h1>wellcome! <span>{{user?.name}}</span></h1>
+            </div>
+            <button class="imgn" mat-button (click)="profile()" *ngIf="profilepopup == false">
+              <img class="img-fluid imgninn" [src]="user?.photoUrl ?? '../assets/user.png'" (error)="onImgError($event)">
+            </button>
+            <button class="imgn" type="button" color="accent" *ngIf="profilepopup == true" mat-button
+              (click)="popclose()">
+              <i class="fa-sharp fa-solid fa-xmark pco"></i>
+            </button>
+          </div>
+        </div>
+        <div class="profile" [ngClass]="profilepopup ? 'profilec' : 'profile' " *ngIf="user">
+          <div class="authbtn">
+            <button class="innerauth" mat-button (click)="navigator()">Login</button>
+            <button mat-button class="innerauth" (click)="loggedout()">logout</button>
+          </div>
+          <div class="image-container">
+  
+            <button mat-button class="imgsbtn" (click)="inputField.click()">
+              <div class="imgload" *ngIf="imgload == true">
+                <img src="../assets/svganim/imgload.gif" alt="">
+              </div>
+              <img class="popup-image" [src]="user?.photoUrl ?? '../assets/user.png'" (error)="onImgError($event)" alt="">
+            </button>
+          </div>
+          <input #inputField hidden type="file" (change)="uploadFile($event, user)" />
+          <div class="form-con">
+            <form [formGroup]="Nameofuser">
+              <div class="container dnbox">
+                <div class="row">
+                  <div class="col-12 ">
+                    <input class="udname" type="text" [(ngModel)]="Name ?? user.name"
+                      formControlName="displayName">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="inner-box">
+            <button mat-button class="savebtn" (click)="saveName(user)">save</button>
+          </div>
+        </div>
+      </mat-toolbar>
+      <content>
+        <router-outlet></router-outlet>
+      </content>
+    </mat-drawer-content>
+  </mat-drawer-container>

@@ -1,0 +1,537 @@
+<section class="loading" *ngIf="Loader == true">
+    <div class="loaded">
+      <img style="height:100%; width:100%;" src="../../assets/svganim/loadinganim.gif" alt="">
+    </div>
+    <div class="loadedtxt">
+      <img style="height:100%; width:100%;" src="../../assets/svganim/loadingtext.gif" alt="">
+    </div>
+  </section>
+  <section class="nmsec" [style.height]="deviseHeight" style=" margin-left:0px !important;">
+  
+    <div class="addinn">
+      <img style="height: 100%; width:40px; margin-left:-10px;" src="../../assets/svganim/animation_500_le9lzpt1.gif"
+        alt="">
+      <button title="Add Notes" mat-fab class="addnotebtn " (click)="open(clear,clearD,'Dclosed')">
+        <i class="fa-sharp fa-solid fa-plus paddicon"></i>
+      </button>
+    </div>
+    <!-- notes is there -->
+    <div class="nmcon">
+      <div class="dcard" *ngIf="realnotes">
+        <div class="row rdatare">
+          <div class="col-3" *ngFor="let notes of realnotes; index as id">
+            <div class="card animate__animated" matRipple  style="--i:{{id}}"> <!----[matRippleColor]="myColor"-->
+              <div class="card-body">
+                <div class="chead">
+                  <h5 class="title">{{notes.title }}</h5>
+                  <h5 class="date">{{notes.date}}</h5>
+                </div>
+                <p class="card-text">
+                  {{notes.discription}}
+                </p>
+  
+                <div class="innav">
+                  <div class="showc">
+                    <mat-button-toggle class="showbtn" #st (click)="hsf(st, notes)">
+                      <i class="fa-sharp fa-solid fa-fire animate__animated fih"
+                        [ngClass]="st.checked ? 'fa-sharp fa-solid fa-xmark animate__rotateIn':'fa-sharp fa-solid fa-fire animate__fadeIn' "></i>
+                    </mat-button-toggle>
+                  </div>
+                  <div class="items animate__animated " *ngIf="st.checked==true">
+                    <button class="abtn animate__animated " type="button" color="accent" mat-button
+                      [ngClass]="firehs? 'animate__zoomIn' : '' " (click)="upopen(notes,id)" [disabled]="id == 0">
+                      <i class="fa-sharp fa-solid fa-pencil fih"></i>
+                    </button>
+                    <button class="abtn" type="button" color="accent" mat-button (click)="deletenode(id, notes)"
+                      [ngClass]="firehs? 'animate__zoomIn' : '' " >
+                      <i class="fa-sharp fa-solid fa-trash-can fih"></i>
+                    </button>
+                    <button class="abtn" type="button" color="accent" mat-button
+                      [ngClass]="firehs? 'animate__zoomIn' : '' " (click)="edit(notes,id)" [disabled]="id == 0">
+                      <i class="fa-sharp fa-solid fa-minimize fih"></i>
+                    </button>
+                  </div>
+  
+                  <div class="favdiv">
+                    <mat-button-toggle class="abtn" #star (click)="onChange(star,notes,id)" [disabled]="id == 0">
+                      <i class=" fa-solid fa-star fa-sharp fih animate__animated "
+                        *ngIf="this.realnotes[id].important == 1"
+                        [ngClass]="star.checked ? 'animate__heartBeat':'animate__tada' "></i>
+                      <i class="fa-regular fa-star fih animate__animated" *ngIf="this.realnotes[id].important == 0"
+                        [ngClass]="star.checked ? '':'animate__tada' "></i>
+                    </mat-button-toggle>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+          <!-- notes is not there -->
+    <div style="position: absolute;" class="dcard" *ngIf="realnotes == null || realnotes == ''">
+        <div class="row rdatare">
+          <div class="col-3" *ngFor="let notes of noteisnot; index as id">
+            <div class="card animate__animated" matRipple [matRippleColor]="myColor" style="--i:{{id}}"
+              style="height:140px;"> 
+              <div class="card-body">
+                <div class="chead">
+                  <h5 class="title" style="text-align: center;">{{notes.title }}</h5>
+                </div>
+                <p class="card-text" style="display: flex; align-items: center; justify-content: center;">
+                  {{notes.discription}}
+                </p>
+              </div>
+              <img class="imgmodel"
+                src="https://ouch-cdn2.icons8.com/6i9h0GlujxPmcIGNZAKHMhnUJ6gaV_MRR5N6U_CTdww/rs:fit:256:266/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNTM2/L2M3ZmQyOTdiLTgz/ODEtNGQzYy1hNzk1/LWY1MmY3ZWUyMjIw/YS5wbmc.png"
+                alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  
+  
+  <!-- addNotes -->
+  <section class=" animate__animated" [ngClass]="mdpoup ? 'mmodale animate__fadeIn' : 'd-none' "
+    [style.height]="deviseHeight" style="margin-left:0px !important;">
+    <div class="container-fluid mdcon animate__animated " [ngClass]="mdpoup ? 'animate__zoomIn' : '' ">
+      <div class="add-imgs">
+        <button class="btniimg" type="button" color="white" mat-button (click)="imggmd()">
+          <i class="fa-solid fa-image " style="margin-top: -2px; color: #ff4681;"></i>
+        </button>
+        <button class="btniimg" type="button" color="white" mat-button (click)="audioadd()">
+          <i class="fa-solid fa-microphone " style="margin-top: -2px; color: #ff4681;"></i>
+        </button>
+      </div>
+      <div class="popconin">
+        <h2 class="poptitle">Add Notes</h2>
+      </div>
+      <div class="imggpopupc">
+        <img [src]="this.picimage" (error)="onImgError($event)" class="img-fluid" style="height: 100%; width:100%">
+      </div>
+      <div class="headcon">
+        <div class="indate">
+          <h2 class="fcdate">{{cdate}}</h2>
+        </div>
+        <button class="popbtn" type="button" [disabled]="image_id != '' || audio_id != ''" color="accent" mat-button (click)="close()">
+          <i class="fa-sharp fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form [formGroup]="Notesform">
+  
+        <div class="container">
+          <div class="row">
+            <div class="col-12 ">
+              <div class="spmenu">
+                <button class="speechbtns" title="Languages" mat-button [matMenuTriggerFor]="menu"><img
+                    style="height:30px; width:30px;" src="../../assets/svganim/tt-anim.gif" alt=""> {{selectedLanguage ==
+                  'en' ? 'Eng.' : (selectedLanguage == 'gu' ? 'Guj.' : selectedLanguage == 'hi' ? 'Hin.':'' ) }} </button>
+                <mat-menu #menu="matMenu">
+                  <button class="speechbtns-item" mat-menu-item (click)="changeLanguage('en')"><img
+                      style="height: 30px; width:30px;" src="../../assets/pngs/flag-usa.png" alt=""> English</button>
+                  <button class="speechbtns-item" mat-menu-item (click)="changeLanguage('gu')"><img
+                      style="height: 30px; width:30px;" src="../../assets/pngs/flag-india.png" alt=""> Gujarati</button>
+                  <button class="speechbtns-item" mat-menu-item (click)="changeLanguage('hi')"><img
+                      style="height: 30px; width:30px;" src="../../assets/pngs/flag-india.png" alt=""> Hindi</button>
+                </mat-menu>
+                <button style="height:38px; padding:0%; border-radius:50%;"
+                  [title]="selectedLanguage ? 'Goto Recognization':'Please Selecte Language'"
+                  [disabled]="selectedLanguage == ''" class="speechbtns" mat-button (click)="Goto()"><img
+                    style="height:38px;" src="../../assets/svganim/audirc.gif" alt=""></button>
+                <div class="slec animate__animated " [ngClass]="recopopup ? 'animate__zoomInDown' : '' " *ngIf="recopopup == true">
+                  <mat-radio-group (change)="selectedOption">
+                    <mat-radio-button style="display:flex;" value="text" (click)="sltradio('text')">For Text
+                    </mat-radio-button>
+                    <mat-radio-button value="disc" (click)="sltradio('disc')">For Discription</mat-radio-button>
+                  </mat-radio-group>
+                  <div class="alignme">
+                    <div class="waveimg"><img style="height:100%; width:100%;" src="../../assets/svganim/waveg.gif"
+                      alt=""></div>
+                    <button class="stsrt" mat-button (click)="start()" title="start recognize" [hidden]="isrd"><i
+                        style="font-size:18px; padding:0px 3.5px; color: #498af3;"
+                        class="fa-solid fa-microphone"></i></button>
+                    <button class="stsrt" mat-button (click)="stop()" title="stop recognize" [hidden]="!isrd"><i
+                        style="font-size:18px; padding:0px; color: #498af3;"
+                        class="fa-solid fa-microphone-slash"></i></button>
+                    <div class="waveimg"><img style="height:100%; width:100%;" src="../../assets/svganim/waveg.gif"
+                        alt=""></div>
+                  </div>
+                </div>
+              </div>
+              <label class="form-label" [style.color]="colorCtr">Title</label>
+              <textarea #clear class="inwidth in1height" formControlName="title" [style.color]="colorCtr"
+              [value]="text" [(ngModel)]="ctext"></textarea> <!----[(ngModel)]="text"-->
+            </div>
+            <div class="col-12" style="--bs-gutter-y:0rem;">
+              <label class="form-label" [style.color]="colorCtr">Discription</label>
+              <textarea #clearD class="inwidth in2height" formControlName="discription" [style.color]="colorCtr"
+              [value]="desc" [(ngModel)]="cdesc"></textarea>   <!----[(ngModel)]="desc"-->
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="popupfooter" [ngClass]="editmode ? 'd-none' : ''">
+        <button class="abtn pinbtn" type="button" color="accent" mat-button (click)="submite()">
+          <i class="fa-sharp fa-solid fa-check picon"></i> ok
+        </button>
+        <button class="abtn pinbtn" type="button" color="accent" mat-button>
+          <i class="fa-sharp fa-solid fa-xmark picon"></i> cancel
+        </button>
+        <button class="abtn pinbtn" type="button" color="accent" mat-button (click)="themeopen()">
+          <i class="fa-sharp fa-solid fa-brush picon"></i>
+        </button>
+      </div>
+      <section class="themepopup" *ngIf="themepopup==true">
+        <button class="imgclose" mat-button (click)="themeclose()">
+          <i class="fa-sharp fa-solid fa-xmark themeicons"></i>
+        </button>
+        <div class="color-box">
+          <form [formGroup]="spicker" class="spkr">
+            <input class="cinpt" matInput [ngxMatColorPicker]="picker" [(ngModel)]="colorCtr" formControlName="colorCtr">
+            <ngx-mat-color-toggle matSuffix [for]="picker">
+            </ngx-mat-color-toggle>
+            <ngx-mat-color-picker #picker></ngx-mat-color-picker>
+          </form>
+        </div>
+        <div class="inniag">
+          <button class="image-box animate__animated" mat-button *ngFor="let imitem of imagis index as i"
+            [ngClass]="editmode ? 'animate__zoomIn':''">
+            <img class="imgreal" [src]="imitem.img" alt="image" (click)="addpickImages(imitem,i)">
+          </button>
+        </div>
+      </section>
+      <section *ngIf="imggallerymd">
+        <div class="inimgmodal  animate__animated" [ngClass]="imggallerymd ? 'mmodale animate__fadeIn' : 'd-none' ">
+          <h2 class="imggm">add picture for this note</h2>
+          <button class="cloimggpp" mat-button (click)="themeclose()">
+            <i class="fa-sharp fa-solid fa-xmark themeicons"></i>
+          </button>
+          <div class="core" *ngIf="!imgurls">
+            <button class="upi-btn" text="Upload Image" mat-button (click)="inputField.click()">
+              <img style="height:100%; width:100%;" src="../../assets/svganim/gallery.gif" alt="">
+            </button>
+            <input #inputField hidden type="file" (change)="pickimgforinner($event)" />
+          </div>
+          <div class="imgshown" *ngIf="imgurls">
+            <img (click)="inimgmodale()" style="height: 100%; width:100%; object-fit: contain;" [src]="imgurls"
+              alt="Your Selected Image">
+              <div class="imgbtnp">
+                <button  mat-button
+              (click)="cleanner()">clear</button>
+              <button mat-button
+              (click)="sbminimg()" [disabled]="!ctext || !cdesc">save</button>
+              </div>
+          </div>
+        </div>
+      </section>
+     
+      <section *ngIf="audiomodel">
+        <div class="inimgmodal  animate__animated" [ngClass]="audiomodel ? 'mmodale animate__fadeIn' : 'd-none' ">
+          <h2 class="imggm">add audio for this note</h2>
+          <div style="position: absolute;">
+            <button class="start-button" *ngIf="!isRecording && !blobUrl" (click)="startRecording()"><img
+                src="../../assets/svganim/manim.gif" alt="startrecording" style="height: 100%; width:100%;"> </button>
+            <button class="stop-button" *ngIf="isRecording && !blobUrl" (click)="stopRecording(); clicked = true;"
+              [disabled]="clicked">
+              <img class="stop-button-icon" src="../../assets/microphone.gif" alt="">
+              Stop Recording</button>
+            <div class="dc-btn">
+              <button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="clearRecordedData()"><img
+                  style="height: 100%; width:100%; margin-top: -7px;" src="../../assets/svganim/lt-cross.gif"
+                  alt=""></button>
+              <button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="download()">
+                <img style="height: 100%; width:100%;" src="../../assets/svganim/download-button.gif" alt=""></button>
+              <span class="savesuggest" *ngIf="!isRecording && blobUrl && showitssave == true">Saved!</span>
+              <button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="uploadaudio()"><img
+                  style="height: 100%; width:100%;" src="../../assets/svganim/savebtn.gif" alt=""></button>
+            </div>
+  
+            <div class="timer" *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
+            <div>
+              <audio controlsList="nodownload" *ngIf="!isRecording && blobUrl" controls>
+                <source [src]="blobUrl" type="audio/webm">
+              </audio>
+  
+            </div>
+          </div>
+          <span style="color:white; display:flex; position: absolute; bottom: 5px; text-align: center;">Note: You anything
+            update then after press compulsory✅ok! </span>
+          <button class="cloimggpp" mat-button (click)="themeclose()">
+            <i class="fa-sharp fa-solid fa-xmark themeicons"></i>
+          </button>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-----innner image model-------->
+  <div style="display:flex; align-items:center; justify-content: center;" class="inmg" *ngIf="innerimgmodel == true">
+    <div class="cordervbtn">
+      <button class="popbtn" mat-button (click)="imggmd()"> <i style="color: #d62960;"
+        class="fa-sharp fa-solid fa-xmark"></i> </button>
+        <button *ngIf="currentimpo.innerimage" [hidden]="Dclosed == false" class="popbtn" mat-button (click)="dnnoteimgs(currentimpo)"><i   style="color: #d62960;" class="fa-solid fa-cloud-arrow-down"></i></button>
+    </div>
+    <img style="height: 88%; width:88%; object-fit: contain; " [src]="imgurls || currentimpo.innerimage"
+      alt="Your Selected Image">
+  </div>
+  <!-------update--------------->
+  
+  <section class=" animate__animated" [ngClass]="updatepopup ? 'mmodale animate__fadeIn' : 'd-none' "
+    [style.height]="deviseHeight" style="margin-left:0px !important;">
+  
+    <div class="container-fluid mdcon animate__animated " [ngClass]="updatepopup ? 'animate__zoomIn' : '' ">
+      <div class="add-imgs">
+        <button class="btniimg" type="button" color="white" mat-button (click)="imggmd()">
+          <i class="fa-solid fa-image " style="margin-top: -2px; color: #ff4681;"></i>
+        </button>
+        <button class="btniimg" type="button" color="white" mat-button (click)="audioadd()">
+          <i class="fa-solid fa-microphone " style="margin-top: -2px; color: #ff4681;"></i>
+        </button>
+      </div>
+      
+      <div class="popconin">
+        <h2 class="poptitle">Update Notes</h2>
+      </div>
+      <div class="imggpopupc" *ngIf="currentimpo">
+        <img [src]="currentimpo.imgurl" (error)="onImgError($event)" class="img-fluid" style="height: 100%; width:100%">
+      </div>
+      <div class="headcon">
+        <div class="indate">
+          <h2 class="fcdate">{{cdate}}</h2>
+        </div>
+        <button class="popbtn" type="button" color="accent" mat-button  [disabled]="image_id != '' || audio_id != ''" (click)="close()">
+          <i class="fa-sharp fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form [formGroup]="upNotesform">
+        <div class="container" *ngIf="currentimpo">
+          <div class="row">
+            <div class="col-12">
+              <div class="spmenu">
+                <button class="speechbtns" title="Languages" mat-button [matMenuTriggerFor]="menu"><img
+                    style="height:30px; width:30px;" src="../../assets/svganim/tt-anim.gif" alt=""> {{selectedLanguage ==
+                  'en' ? 'Eng.' : (selectedLanguage == 'gu' ? 'Guj.' : selectedLanguage == 'hi' ? 'Hin.':'' ) }} </button>
+                <mat-menu #menu="matMenu">
+                  <button class="speechbtns-item " mat-menu-item (click)="changeLanguage('en')"><img
+                      style="height: 30px; width:30px;" src="../../assets/pngs/flag-usa.png" alt=""> English</button>
+                  <button class="speechbtns-item" mat-menu-item (click)="changeLanguage('gu')"><img
+                      style="height: 30px; width:30px;" src="../../assets/pngs/flag-india.png" alt=""> Gujarati</button>
+                  <button class="speechbtns-item" mat-menu-item (click)="changeLanguage('hi')"><img
+                      style="height: 30px; width:30px;" src="../../assets/pngs/flag-india.png" alt=""> Hindi</button>
+                </mat-menu>
+                <button style="height:38px; padding:0%; border-radius:50%;"
+                  [title]="selectedLanguage ? 'Goto Recognization':'Please Selecte Language'"
+                  [disabled]="selectedLanguage == ''" class="speechbtns" mat-button (click)="Goto()"><img
+                    style="height:38px;" src="../../assets/svganim/audirc.gif" alt=""></button>
+                <div class="slec animate__animated" [ngClass]="recopopup ? 'animate__zoomInDown' : '' " *ngIf="recopopup == true">
+                  <mat-radio-group (change)="selectedOption">
+                    <mat-radio-button style="display:flex;" value="text" (click)="sltradio('text')">For Text
+                    </mat-radio-button>
+                    <mat-radio-button value="disc" (click)="sltradio('disc')">For Discription</mat-radio-button>
+                  </mat-radio-group>
+                  <div class="alignme">
+                    <div class="waveimg"><img style="height:100%; width:100%;" src="../../assets/svganim/waveg.gif"
+                      alt=""></div>
+                    <button class="stsrt" mat-button (click)="start()" title="start recognize" [hidden]="isrd"><i
+                        style="font-size:18px; padding:0px 3.5px; color: #498af3;"
+                        class="fa-solid fa-microphone"></i></button>
+                    <button class="stsrt" mat-button (click)="stop()" title="stop recognize" [hidden]="!isrd" ><i
+                        style="font-size:18px; padding:0px; color: #498af3;"
+                        class="fa-solid fa-microphone-slash"></i></button>
+                    <div class="waveimg"><img style="height:100%; width:100%;" src="../../assets/svganim/waveg.gif"
+                        alt=""></div>
+                  </div>
+                </div>
+              </div>
+              <label class="form-label" [style.color]="currentimpo.color" [style.color]="colorCtr">Title</label>
+              <textarea class="inwidth in1height" [(ngModel)]="currentimpo.title" formControlName="utitle"
+                [style.color]="currentimpo.color" [(ngModel)]="text"  [style.color]="colorCtr"></textarea>
+            </div>
+            <div class="col-12" style="--bs-gutter-y:0rem;">
+              <label class="form-label" [style.color]="currentimpo.color" [style.color]="colorCtr">Discription
+              </label>
+              <textarea class="inwidth in2height" [(ngModel)]="currentimpo.discription" formControlName="udiscription"
+                [style.color]="currentimpo.color" [(ngModel)]="desc" [style.color]="colorCtr" ></textarea>
+              <h1></h1>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="popupfooter" [ngClass]="updateMode ? 'd-none' : ''" *ngIf="themepopup==false">
+        <button class="abtn pinbtn" type="button" color="accent" mat-button (click)="updatend(currentimpo)">
+          <i class="fa-sharp fa-solid fa-check picon"></i> ok
+        </button>
+        <button class="abtn pinbtn" type="button" color="accent" mat-button>
+          <i class="fa-sharp fa-solid fa-xmark picon"></i> cancel
+        </button>
+        <button class="abtn pinbtn" type="button" color="accent" mat-button (click)="themeopen()">
+          <i class="fa-sharp fa-solid fa-brush picon"></i>
+        </button>
+      </div>
+      <section class="themepopup" *ngIf="themepopup==true">
+        <button class="imgclose" mat-button (click)="themeclose()">
+          <i class="fa-sharp fa-solid fa-xmark themeicons"></i>
+        </button>
+        <div class="color-box">
+          <form [formGroup]="spicker" class="spkr">
+            <input class="cinpt" matInput [ngxMatColorPicker]="picker" [(ngModel)]="colorCtr" formControlName="colorCtr">
+            <ngx-mat-color-toggle matSuffix [for]="picker"></ngx-mat-color-toggle>
+            <ngx-mat-color-picker #picker> </ngx-mat-color-picker>
+          </form>
+        </div>
+        <div class="inniag">
+          <button class="image-box animate__animated" mat-button *ngFor="let imitem of imagis index as i"
+            [ngClass]="editmode ? 'animate__zoomIn':''">
+            <img class="imgreal" [src]="imitem.img" alt="" (click)="pickImages(imitem,i)">
+          </button>
+        </div>
+      </section>
+      <!----innner image------>
+      <section *ngIf="imggallerymd" >
+  
+        <div class="inimgmodal  animate__animated" [ngClass]="imggallerymd ? 'mmodale animate__fadeIn' : 'd-none' ">
+          <h2 class="imggm">add picture for this note</h2>
+          <button class="cloimggpp" mat-button (click)="themeclose()">
+            <i class="fa-sharp fa-solid fa-xmark themeicons"></i>
+          </button>
+          <div class="core" *ngIf="!currentimpo.innerimage">
+            <button class="upi-btn" text="Upload Image" mat-button (click)="inputField.click()">
+              <img style="height:100%; width:100%;" src="../../assets/svganim/gallery.gif" alt="">
+            </button>
+            <input #inputField hidden type="file" (change)="updatepickimgforinner($event)" />
+          </div>
+          <div class="imgshown" *ngIf="currentimpo.innerimage">
+            <div class="imgload" *ngIf="imgload == true">
+              <img src="../assets/svganim/imgload.gif" alt="">
+            </div>
+            <button style="position: absolute;
+             left: 50%; transform: translate(-50%); bottom: 20px; background: white; object-fit: scale-down;" mat-button
+              (click)="inputField.click()">Update</button>
+            <input #inputField hidden type="file" (change)="updatepickimgforinner($event)" />
+            <img (click)="inimgmodale()"  style="height: 100%; width:100%; object-fit: contain;"
+              [src]="currentimpo.innerimage" alt="Your Selected Image">
+          </div>
+        </div>
+      </section>
+  
+      <section *ngIf="audiomodel">
+        <div class="inimgmodal  animate__animated" [ngClass]="audiomodel ? 'mmodale animate__fadeIn' : 'd-none' ">
+          <h2 class="imggm">add audio for this note</h2>
+          <div>
+            <button class="start-button" *ngIf="!isRecording && !currentimpo.audio && !blobUrl"
+              (click)="startRecording()"><img src="../../assets/svganim/manim.gif" alt="startrecording"
+                style="height: 100%; width:100%;"> </button>
+            <button class="stop-button" *ngIf="isRecording && !currentimpo.audio || isRecording && !blobUrl"
+              (click)="stopRecording()">
+              <img class="stop-button-icon" src="../../assets/microphone.gif" alt="">
+              Stop Recording</button>
+            <div class="dc-btn">
+              <button class="cancel-button" *ngIf="!isRecording && currentimpo.audio || !isRecording && blobUrl"
+                (click)="clearRecordedData()"><img style="height: 100%; width:100%; margin-top: -7px;"
+                  src="../../assets/svganim/lt-cross.gif" alt=""></button>
+              <button class="cancel-button" *ngIf="!isRecording && currentimpo.audio || !isRecording && blobUrl"
+                (click)="updownload()">
+                <img style="height: 100%; width:100%;" src="../../assets/svganim/download-button.gif" alt=""></button>
+              <span class="updatesuggest" *ngIf=" showitssave == true">Updated!</span>
+              <button class="cancel-button" *ngIf="!isRecording && currentimpo.audio || !isRecording && blobUrl"
+                (click)="updateaudio()"><img style="height: 100%; width:100%;" src="../../assets/svganim/savebtn.gif"
+                  alt=""></button>
+            </div>
+  
+            <div class="timer" *ngIf="isRecording && !currentimpo.audio || isRecording && !blobUrl"> {{recordedTime}}
+            </div>
+            <div>
+              <audio controlsList="nodownload" *ngIf="!isRecording && currentimpo.audio || !isRecording && blobUrl"
+                controls>
+                <source [src]="currentimpo.audio || blobUrl" type="audio/webm">
+              </audio>
+            </div>
+          </div>
+          <span style="color:white; display:flex; position: absolute; bottom: 5px; text-align: center;">Note: You anything
+            update then after press compulsory✅ok! </span>
+          <button class="cloimggpp" mat-button (click)="themeclose()">
+            <i class="fa-sharp fa-solid fa-xmark themeicons"></i>
+          </button>
+        </div>
+      </section>
+    </div>
+  </section>
+  
+  <!---------only view------>
+  
+  <section class=" animate__animated" [ngClass]="viewpopup ? 'mmodale animate__fadeIn' : 'd-none' "
+    [style.height]="deviseHeight" style="margin-left:0px !important;">
+  
+    <div class="container-fluid mdcon animate__animated " [ngClass]="viewpopup ? 'animate__zoomIn' : '' ">
+      <div class="add-imgs">
+        <button class="btniimg" type="button" color="white" mat-button (click)="imggmd()">
+          <i class="fa-solid fa-image " style="margin-top: -2px; color: #ff4681;"></i>
+        </button>
+        <button class="btniimg" type="button" color="white" mat-button (click)="audioadd()">
+          <i class="fa-solid fa-microphone " style="margin-top: -2px; color: #ff4681;"></i>
+        </button>
+      </div>
+      <div class="popconin">
+        <h2 class="poptitle">View Notes</h2>
+      </div>
+      <div class="imggpopupc" *ngIf="currentimpo">
+        <img [src]="currentimpo.imgurl" class="img-fluid" style="height: 100%; width:100%">
+      </div>
+      <div class="headcon">
+        <div class="indate">
+          <h2 class="fcdate">{{cdate}}</h2>
+        </div>
+        <button class="popbtn" type="button" color="accent" mat-button (click)="close()">
+          <i class="fa-sharp fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form [formGroup]="upNotesform">
+        <div class="container" *ngIf="currentimpo">
+          <div class="row">
+            <div class="col-12">
+              <label class="form-label" [style.color]="currentimpo.color" [style.color]="colorCtr">Title</label>
+              <textarea [attr.disabled]="currentimpo" class="inwidth in1height" [(ngModel)]="currentimpo.title"
+                formControlName="utitle" [style.color]="currentimpo.color" [style.color]="colorCtr"></textarea>
+            </div>
+            <div class="col-12" style="--bs-gutter-y:0rem;">
+              <label class="form-label" [style.color]="currentimpo.color" [style.color]="colorCtr">Discription
+              </label>
+              <textarea [attr.disabled]="currentimpo" class="inwidth in2height" [(ngModel)]="currentimpo.discription"
+                formControlName="udiscription" [style.color]="currentimpo.color" [style.color]="colorCtr"></textarea>
+              <h1></h1>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- For innernotes-view-only -->
+
+      <section *ngIf="imggallerymd">
+        <div class="inimgmodal  animate__animated" [ngClass]="imggallerymd ? 'mmodale animate__fadeIn' : 'd-none' ">
+          <h2 class="imggm">add picture for this note</h2>
+          <button class="cloimggpp" mat-button (click)="themeclose()">
+            <i class="fa-sharp fa-solid fa-xmark themeicons"></i>
+          </button>
+          <div class="core" (click)="inimgmodale()" style="height: 150px; width:150px;" *ngIf="currentimpo" >
+            <img style="height: 100%; width:100%; object-fit: contain;" [src]="currentimpo ? currentimpo.innerimage : '../../assets/googlel (1).png'" alt="">
+          </div>
+        </div>
+      </section>
+      <section *ngIf="audiomodel">
+        <div class="inimgmodal  animate__animated" [ngClass]="audiomodel ? 'mmodale animate__fadeIn' : 'd-none' ">
+          <h2 class="imggm">add picture for this note</h2>
+          <button class="cloimggpp" mat-button (click)="themeclose()">
+            <i class="fa-sharp fa-solid fa-xmark themeicons"></i>
+          </button>
+          <div class="core" *ngIf="currentimpo" >
+            <div>
+              <audio controlsList="nodownload"
+                controls>
+                <source [src]="currentimpo.audio" type="audio/webm">
+              </audio>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div> 
+  </section>

@@ -1,0 +1,104 @@
+
+<section class="nmsec" [style.height]="deviseHeight" style=" margin-left:0px !important;">
+    <div class="nmcon">
+        <div class="dcard" *ngIf="realnotes">
+          <div class="row rdatare">
+            <div class="col-3" *ngFor="let notes of realnotes; index as id">
+              <div class="card animate__animated" matRipple [matRippleColor]="myColor" style="--i:{{id}}"> 
+                <div class="card-body">
+                  <div class="chead">
+                    <h5 class="title">{{notes.title }}</h5>
+                    <h5 class="date">{{notes.date}}</h5>
+                  </div>
+                  <p class="card-text">
+                    {{notes.discription}}
+                  </p>
+    
+                  <div class="innav">
+                    <div class="showc">
+                      <mat-button-toggle class="showbtn" #st (click)="hsf(st, notes)">
+                        <i class="fa-sharp fa-solid fa-fire animate__animated fih"
+                          [ngClass]="st.checked ? 'fa-sharp fa-solid fa-xmark animate__rotateIn':'fa-sharp fa-solid fa-fire animate__fadeIn' "></i>
+                      </mat-button-toggle>
+                    </div>
+                    <div class="items animate__animated " *ngIf="st.checked==true">
+                      <button class="abtn" type="button" color="accent" mat-button
+                        [ngClass]="firehs? 'animate__zoomIn' : '' " (click)="edit(notes,id)" >
+                        <i class="fa-sharp fa-solid fa-minimize fih"></i>
+                      </button>
+                    </div>
+    
+                    <div class="favdiv">
+                      <mat-button-toggle class="abtn" #star (click)="onChange(star,notes,id)" title="Double Click To Remove">
+                        <i class=" fa-solid fa-star fa-sharp fih animate__animated "
+                          *ngIf="notes.important == 1"
+                          [ngClass]="star.checked ? 'animate__heartBeat':'animate__tada' "></i>
+                        <i class="fa-regular fa-star fih animate__animated" *ngIf="notes.important == 0"
+                          [ngClass]="star.checked ? '':'animate__tada' "></i>
+                      </mat-button-toggle>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="not-content" *ngIf="nof == true" [style.height]="deviseHeight" style=" margin-left:0px !important;">
+      <div class="innoteco">
+        <h1 class="notefound">Notes Not Foud!</h1>
+      <div class="imgfig">
+     <img src="https://cdn.dribbble.com/users/916515/screenshots/5807370/media/77ce9cdf2cec3418f55852fd641602e2.gif" alt="">
+      </div>
+      <div class="texcon">
+      <h1>please select the important Notes</h1>
+      <button class="txtbtn" mat-button (click)="routes()">Notes</button>
+      </div>
+      </div>
+    </div> 
+    </section>
+    
+    <section class=" animate__animated" [ngClass]="viewpopup ? 'mmodale animate__fadeIn' : 'd-none' "
+      [style.height]="deviseHeight" style="margin-left:0px !important;">
+    
+      <div class="container-fluid mdcon animate__animated " [ngClass]="viewpopup ? 'animate__zoomIn' : '' ">
+        <div class="popconin">
+          <h2 class="poptitle">View Notes</h2>
+        </div>
+        <div class="imggpopupc" *ngIf="currentimpo">
+          <img [src]="currentimpo.imgurl"  class="img-fluid" style="height: 100%; width:100%">
+        </div>
+        <div class="headcon">
+          <div class="indate" *ngIf="currentimpo">
+            <h2 class="fcdate">{{currentimpo.date}}</h2>
+          </div>
+          <button class="popbtn" type="button" color="accent" mat-button (click)="close()">
+            <i class="fa-sharp fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <form [formGroup]="upNotesform">
+          <div class="container" *ngIf="currentimpo">
+            <div class="row">
+              <div class="col-12">
+                <label class="form-label" [style.color]="currentimpo.color">Title</label>
+                <textarea [attr.disabled]="currentimpo" class="inwidth in1height" [(ngModel)]="currentimpo.title" formControlName="utitle"
+                  [style.color]="currentimpo.color"  ></textarea>
+              </div>
+              <div class="col-12" style="--bs-gutter-y:0rem;">
+                <label class="form-label" [style.color]="currentimpo.color">Discription
+                </label>
+                <textarea [attr.disabled]="currentimpo" class="inwidth in2height" [(ngModel)]="currentimpo.discription" formControlName="udiscription"
+                  [style.color]="currentimpo.color"  ></textarea>
+                <h1></h1>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    
+    </section> 
+
+
+      
+      
+  

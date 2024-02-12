@@ -1,0 +1,796 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    z-index: 9999999;
+  }
+  
+  .example-container {
+    height: 100vh;
+    width: 100%;
+  }
+  .M_nav{
+    position: sticky;
+    top: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    margin-top: 5px;
+  }
+  .example-sidenav {
+    width: 250px;
+    background: rgb(23 23 26);
+  }
+  
+  .adddatabtn {
+    background: #1c7bbf;
+    color: white;
+    min-width: fit-content;
+    width: 65px;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  ::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel.myincl{ min-width:max-content !important;}
+  ::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel.addselect{
+    margin-top: 20px !important;
+    transform-origin:0% !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  ::ng-deep .mat-mdc-menu-content{
+    display: flex;
+    overflow: hidden;
+  }
+  
+  ::ng-deep .mat-menu-panel{
+    height: 100%;
+    width: 150px;
+    background: #ccc8c8;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .selmenubtn{
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    margin-left: 5px;
+  }
+  .addfl {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100%;
+    background: radial-gradient(rgba(0,0,0,0.2), transparent);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999999999;
+  }
+  
+  .inneraddfl {
+    background: white;
+    height: 120px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: all 0.4s ease-in-out;
+    position: absolute;
+  }
+  .inneraddfl:hover{
+    transform: scale(1.1);
+  }
+  .addfbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+    position: relative;
+    top: -35px;
+  }
+  
+  
+  .group {
+    position: relative;
+    margin-bottom: 45px;
+  }
+  
+  .uploaderk {
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 5px 5px 5px 5px;
+    display: block;
+    width: 97%;
+    border: none;
+    text-align: center;
+    border-bottom: 1px solid #e502ff;
+  }
+  
+  .uploaderk:focus {
+    outline: none;
+    border-bottom: 1.5px solid #5264AE;
+  }
+  
+  /* LABEL ======================================= */
+  label {
+    color: #e502ff;
+    font-size: 15px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    width: 97%;
+    text-align: center;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  
+  /* active state */
+  input:focus~label,
+  input:valid~label {
+    top: -10px;
+    font-size: 10px;
+    color: #5264AE;
+  }
+  .mcond{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 17px;
+    height: 93%;
+    width: 98%;
+    background: #17171a;
+    border-radius: 15px;
+     overflow: scroll;
+  }
+  .transition-enabled {
+     transition:  ease-in-out 0.5s !important; 
+ }
+  .mcolor{width: 30px !important;}
+  .mcolor:nth-child(1){
+    background: #17171a;
+  }
+  .mcolor:nth-child(2){
+    background: linear-gradient(to left, #093637, #44A08D);
+  }
+   .mcolor:nth-child(3){
+    background: linear-gradient(to left, #24243e, #302b63, #0f0c29); 
+  }
+  .mcolor:nth-child(4){
+    background: linear-gradient(to left, #C06C84, #6C5B7B, #355C7D); 
+  }
+  .mcolor:nth-child(5){
+    background: linear-gradient(to left, #240b36, #c31432);
+  }
+  .mcolor:nth-child(6){
+    background: linear-gradient(to right, #141517, #6A9113); 
+  }
+  .mcolor:nth-child(7){
+    background: linear-gradient(to right, #606c88, #3f4c6b);
+  }
+   .mcolor:nth-child(8){
+    background: linear-gradient(to right, #16222a, #3a6073);
+  }
+ .Bgtarget{
+  position: absolute;
+  left: 0;
+  top: 80px;
+  height: 100vh;
+  width: 100%;
+  z-index: 99999999999;
+ }
+ .Bgtarget > div {
+  position: absolute;
+  right: 15px;
+  width: 150px;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  background: #ccc;
+  border-radius: 10px;
+  animation-duration: 0.6s;
+  overflow: hidden;
+  padding: 10px 5px;
+ }
+  .mcond::-webkit-scrollbar{
+    display: none;
+  }
+  .paint_M{
+    color: #ccc;
+    z-index: 999999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    rotate: 177deg;
+    height: 30px;
+    width: 30px;
+  }
+  .mainfol{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: fit-content;
+    background: rgba(255,255,255,0.2);
+    border-radius: 5px;
+  }
+  .foderbtn{
+    height: 45px;
+    width: 130px;
+    margin: 0px 5px;
+    color: white;
+    padding-right: 15px;
+  }
+  .foldername{
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 45px;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+    overflow: hidden;
+    color: azure;
+    position: relative;
+    top: 0;
+    left: 5px;
+    white-space:nowrap;
+  }
+  .infbtn{
+    color: white;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+  }
+  .grid-i{
+    position: relative;
+    margin: auto;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    height: 37%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    padding: 10px;
+    transition: all 0.3s;
+    min-width: 200px;
+    max-width: 90% !important;
+    max-height: 80% !important;
+    padding-bottom: 15px;
+    overflow: scroll;
+    
+  }
+  .grid-i::-webkit-scrollbar, .ingrid-i::-webkit-scrollbar {
+    display: none;
+  }
+  .ingrid-i{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    height: auto;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+  /* .conbox{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999999999999;
+  } */
+  .rhead > i {
+    display: grid;
+    place-content: center;
+    margin-top: 10px;
+  }
+  /* .rightclick{
+    width: 170px;
+    height: fit-content;
+    background: azure;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    position: absolute;
+  } */
+  .riname{
+    width: 100%;
+    padding: 0px 5px 0px 5px;
+    overflow: hidden;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-animation: my-animation 5s linear infinite;
+  animation: my-animation 5s linear infinite;
+  white-space: nowrap;
+  }
+  @keyframes my-animation {
+    from { -webkit-transform: translateX(100%); }
+    to { -webkit-transform: translateX(-100%); }
+  }
+  /* .clickfolder{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100%;
+    width: 100%;
+    background: rgb(23, 23, 26);
+    border-radius: 15px;
+    z-index: 99999999 !important;
+  } */
+  .button-back{
+    margin: 5px;
+    color: white;
+    font-size: 20px;
+    padding: 0px;
+    line-height: 0;
+    border-radius: 5px;
+  }
+  
+  .tags{
+    color: #9a9a9b;
+    font-size: 15px;
+    margin-left: 5px;
+    padding: 5px 10px;
+    position: relative;
+    top: 5px;
+    user-select: none;
+  }
+  /* .directfile{
+    position: relative;
+    z-index: -99;
+  } */
+  ul{
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%);
+    color: black;
+    background: white;
+    display: flex;
+    z-index: 99999999;
+    padding: 5px 10px;
+    list-style: none;
+    height: 35px;
+    border-radius: 50px;
+  }
+  ul li{
+    display: flex;
+    margin-left: 5px;
+    list-style: none;
+    align-items: center;
+  }
+  .fa-chevron-right{
+    transition: 0.4s ease-in;
+  }
+  .pathb{
+    line-height: 1.5;
+    padding: 3px;
+    width: max-content;
+  }
+  .pathb:hover .fa-chevron-right{       
+  transform: rotateY(180deg) scale(1.2);
+  }
+  
+  .example-tree-invisible {
+    display: none;
+  }
+  
+  .example-tree ul,
+  .example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+  
+  .example-tree .mat-nested-tree-node div[role=group] {
+    padding-left: 10px;
+  }
+  .mat-nested-tree-node{
+    position: relative;
+    left: -5px;
+  } 
+  
+  .example-tree div[role=group] > .mat-tree-node {
+    padding-left: 10px;
+  }
+  .mat-tree{
+    background: #fafafa;
+    width: 95%;
+    margin: 5px auto;
+    overflow: hidden;
+    padding: 5px 10px;
+    border-radius: 6px;
+  }
+  .db{
+    height: 25px !important;
+    min-height: 35px;
+    line-height: 0px;
+    width: fit-content;
+    margin: 0px;
+    padding: 0px;
+  }
+  .navibtn{
+    padding: 0px 7px 0px 5px;
+    height: fit-content;
+    display: flex;
+    width: 160px;
+    overflow: hidden;
+  }  
+  .mat-expansion-panel{
+    width: 95%;
+    margin: 5px auto;
+  }
+  .rfolder{
+    position: absolute;
+    width: 100%;
+    padding: 2px;
+    text-align: center;
+  }
+ 
+  .ifobtn{
+    min-width: 95%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px auto;
+    color: #423d3d;
+    height: 25px ;
+    min-height: 25px ;
+    border-radius: 5px;
+    padding: 0px !important;
+    width: auto;
+  }
+  .ifobtn:hover{
+    background: linear-gradient(to right, rgb(191 103 171) 30%, transparent);
+    color: white;
+  }
+  
+  .ifobtn i{
+    font-size: 15px;
+    margin: 0px 10px;
+    color: #7f8081;
+  }
+  .ifobtn:hover i{
+    color: white;
+  }
+  .social{
+    margin-top: 34px;
+  }
+  .deepicon{
+    font-size: 25px;
+    margin-right: 5px;
+    color: darkturquoise;
+    float: left;
+    line-height: 1.8;
+    margin-left: -5px;
+  }
+  .inview{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999999999 !important;
+  }
+  .mdocv{
+    height: 100vh;
+    width: 100%;
+  }
+  .cancelviewer{
+    position: fixed;
+    bottom: 60px;
+    right: 12px;
+    background: #353535;
+    color: white;
+    min-width: 40px;
+    border-radius: 0px;
+  }
+  #drowerbtn{
+    min-width: fit-content;
+    padding: 5px 15px;
+    height: fit-content;
+    border-radius: 5px;
+  }
+  ::ng-deep .Folderexist{
+    position: fixed !important;
+    right: 20px !important;
+    left: auto !important;
+    top: 7%;
+    height: fit-content;
+    background: #8b8b8b !important;
+    color: rgb(26, 24, 24);
+    border-radius: 5px;
+  }
+      
+  ::ng-deep .Folderexist button{
+    padding: 7px 7px;
+    min-width: fit-content;
+    height: fit-content;
+  }
+  ::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__surface{
+    padding-right: 10px;
+  }
+  
+  .Tnav{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 5px;
+    height: fit-content;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .Tnav button{
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mainfnf{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #17171a;
+    z-index: 999999999;
+    overflow: hidden;
+  }
+  
+  .smnotify{
+    position: absolute;
+    top: 7.5%;
+    right: 25px;
+    display: flex;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.5s ease-in;
+    z-index: 9999999999999;
+  }
+  .msg{
+    font-size: 14px;
+    background: #f1eeee;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .mprogress{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999999999;
+  }
+  .innerprogerrss{
+    background: white;
+      height: 200px;
+      width: 95%;
+      border-radius: 25px;
+  }
+  .progress {
+    height: 1.6rem !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+  }
+  .progress span{
+    position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 50000000;
+  }
+  .innerloader{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-45%, -45%);
+    height: 157px;
+    width: 200px;
+    background: white;
+    display: grid;
+    place-items: center;
+    border-radius: 20px;
+  }
+  .innerloader img{
+    height: 110px;
+    width: 110px;
+    margin-top: -30px;
+  }
+  .innerloader h3{
+    text-align: center;
+    margin-top: -45px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 0px;
+    line-height: 24px;
+  }
+  ::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel{
+    transform-origin: right top;
+    height: fit-content;
+    overflow: visible !important;
+  
+  }
+  /* .matselbar ::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel{
+    margin-top: 270px;
+  } */
+  @media (max-width:500px){
+    ::ng-deep .Folderexist{
+      width: fit-content !important;
+    }
+    .smnotify{
+      position: absolute !important;
+      left: 50% !important;
+      transform: translate(-50%) !important;
+      bottom: 15px !important;
+      top: auto;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+  .loaderv{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 999999999999;
+    background: #312b2b9e;
+    backdrop-filter: blur(15px);
+  }
+
+  /*====================RS==========*/
+
+  mwlResizable {
+    box-sizing: border-box;
+  }
+  
+.resize-handle-top,
+.resize-handle-bottom {
+  position: absolute; 
+  height: fit-content;
+  cursor: row-resize;
+  width: 100%;
+  color: #ccc;
+  transition: 0.4s ease;
+}
+.resize-handle-top {
+  top: 0;
+}
+.resize-handle-bottom {
+  bottom: 0;
+}
+.resize-handle-left,
+.resize-handle-right {
+  position: absolute; 
+  height: 100%;
+  cursor: col-resize;
+  width: fit-content;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: 0.4s ease;
+}
+.resize-handle-left {
+  left: 0;
+}
+.resize-handle-right {
+  right: 0;
+}
+
+.example-handle {
+  position: absolute;
+  top: 1px;
+  color: #ccc;
+  cursor: move;
+  width: 80%;
+  height: 24px;
+  z-index: 999999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pps{
+  position: absolute;
+  top: 80px;
+  right: 25px;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+  z-index: 999999999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+@media (max-width:400px){
+  ::ng-deep .Folderexist {
+    left: 48% !important;
+    transform: translate(-50%) !important;
+    width: 85% !important;
+}
+.Tnav{
+  display: none;
+}
+.rhead{width: 110px !important;}
+.riname{
+  font-size: 12px;
+}
+::ng-deep .ifobtn{
+  height: 18px !important;
+  min-height: 18px !important;
+  font-size: 12px;
+}
+::ng-deep.ifobtn ::ng-deep.mdc-list-item__primary-text{
+  font-size: 12px !important;
+}
+.social{
+  margin-top: 27px;
+}
+ .ifobtn i, .tags{
+  font-size: 12px;
+}
+.inicin{
+  font-size: 14px !important;
+}
+
+}
+@media (max-width:300px){
+  ::ng-deep .ifobtn{
+    font-size: 11px;
+  }
+  ::ng-deep.ifobtn ::ng-deep.mdc-list-item__primary-text {
+    font-size: 11px !important;
+  }
+.riname, .tags{
+  font-size: 11px;
+}
+}

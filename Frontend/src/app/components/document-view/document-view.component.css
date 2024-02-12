@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :host {
+    display: block;
+  }
+  .datacon{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .overlay-popout-google {
+    width: 40px;
+    height: 40px;
+    right: 26px;
+    top: 11.5px;
+    position: absolute;
+    z-index: 1000;
+  }
+  
+  .overlay-popout-office {
+    width: 100px;
+    height: 20px;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 1000;
+  }
+  
+  .overlay-full {
+    width: 100%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+  }
+  
+  iframe {
+    width: 100%;
+    height: 100%;
+    background: aliceblue;
+  }
+  
+  .imgs {
+    height: 100vh;
+    padding: 10px;
+    background: lightgray;
+  }
+  
+  .mcon {
+    background: darkcyan;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  img {
+    max-height: 90vh;
+    width: -webkit-fill-available;
+    max-width: 600px;
+    margin: 25px 60px;
+    border: 3px solid rgb(0,0,0,0.3);
+    border-radius: 15px;
+  }
+  .cancelviewer{
+    position: absolute;
+    bottom: 20px;
+    right: 12px;
+    background: #353535;
+    color: white !important;
+    min-width: 40px;
+    border-radius: 0px;
+  }
+  /* `webviewer.component.css` */
+/* Change this to suit your viewing needs*/
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+app-webviewer {
+  flex: 1;
+  margin: 8px;
+  -webkit-box-shadow: 1px 1px 10px #999;
+          box-shadow: 1px 1px 10px #999;
+}
+.video_payer{
+  position:absolute;
+  left: 0%;
+  top: 0%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: salmon;
+}
+.video_payer > video{
+  width: 65%;
+  z-index: 99999;
+  border-radius: 7px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  max-height: 95%;
+}
+.video_payer > video #controls{
+  background: violet !important;
+}
+
+.viewer { width: 100%; height: 100vh; }
+  @media screen and (max-width:495px){
+    img {
+       margin: 5px;
+    }
+  }
